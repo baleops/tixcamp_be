@@ -1,6 +1,6 @@
 // import model Talents
 const Talents = require('../../api/v1/talents/model');
-const { checkingImage } = require('./image');
+const { checkingImage } = require('./images');
 
 // import custom error not found dan bad request
 const { NotFoundError, BadRequestError } = require('../../errors');
@@ -109,6 +109,7 @@ const checkingTalents = async (id) => {
 
   return result;
 };
+
 
 module.exports = {
   getAllTalents,

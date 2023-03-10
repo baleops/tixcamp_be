@@ -35,14 +35,22 @@ const updateCategories = async (req) => {
 
     if(!result) throw new NotFoundError(`Tidak ada kategori dengan id : ${id}`);
     return result;
-}
+};
 
 const deleteCategories = async (req) => {
     const {id} = req.params;
     const check = await Categories.findOneAndDelete({_id: id});
     if(!check) throw new NotFoundError(`Id '${id}' Tidak ditemukan `);
     return check;
-}
+};
+
+const checkingCategories = async (id) => {
+    const result = await Categories.findOne({ _id: id });
+  
+    if (!result) throw new NotFoundError(`Tidak ada Kategori dengan id :  ${id}`);
+  
+    return result;
+};
 
 
 module.exports = {
@@ -51,4 +59,5 @@ module.exports = {
     getOneCategories,
     updateCategories,
     deleteCategories,
+    checkingCategories,
 };
